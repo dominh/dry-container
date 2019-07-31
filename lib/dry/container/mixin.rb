@@ -266,7 +266,12 @@ module Dry
       #
       # @api public
       def freeze
-        super
+        # In my opinion it's unnecessary to freeze whole container object
+        # which closes option of i.e enabling stubs.
+        # It should good enough to freeze registered items.
+
+        #super
+
         _container.freeze
         self
       end
